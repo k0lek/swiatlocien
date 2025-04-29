@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Strona nie znaleziona | Swiatlocien</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .error-container {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .error-code {
+            font-size: 8rem;
+            font-weight: 700;
+            color: #0066cc;
+            margin-bottom: 1rem;
+        }
+        
+        .error-message {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .error-container .btn {
+            background-color: #0066cc;
+            color: white;
+            border-color: #0066cc;
+        }
+        
+        .error-container .btn:hover {
+            background-color: transparent;
+            color: #0066cc;
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <div class="error-code">404</div>
+        <div class="error-message">Strona nie została znaleziona</div>
+        <p>Przepraszamy, ale strona, której szukasz, nie istnieje lub została przeniesiona.</p>
+        <a href="/" class="btn">Wróć do strony głównej</a>
+    </div>
+</body>
+</html>

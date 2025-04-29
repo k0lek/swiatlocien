@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio fotograficzne Światłocień - profesjonalne sesje zdjęciowe, fotografia portretowa, krajobrazowa i architektoniczna">
+    <meta name="keywords" content="fotografia, portfolio, zdjęcia, portrety, krajobraz, architektura, natura">
+    <meta name="author" content="Światłocień">
+    <title>Swiatlocien - Portfolio Fotograficzne</title>
+    <!-- Główny plik stylu -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">Swiatlo<span>cien</span></a>
+                <ul class="nav-links">
+                    <li><a href="#">Strona Główna</a></li>
+                    <li><a href="#gallery">Portfolio</a></li>
+                    <li><a href="#about">O Mnie</a></li>
+                    <li><a href="#contact">Kontakt</a></li>
+                </ul>
+                <button class="mobile-menu-btn" aria-label="Menu mobilne">☰</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Menu mobilne -->
+    <div class="overlay"></div>
+    <div id="mobile-nav">
+        <button class="close-menu" aria-label="Zamknij menu">✕</button>
+        <ul class="mobile-nav-links">
+            <li><a href="#">Strona Główna</a></li>
+            <li><a href="#gallery">Portfolio</a></li>
+            <li><a href="#about">O Mnie</a></li>
+            <li><a href="#contact">Kontakt</a></li>
+        </ul>
+    </div>
+
+    <!-- Sekcja hero -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1>Moje Fotograficzne Portfolio</h1>
+            <p>Uchwyć moment, zachowaj wspomnienie. Odkryj moje najlepsze prace fotograficzne.</p>
+            <a href="#gallery" class="btn">Zobacz Portfolio</a>
+        </div>
+    </section>
+
+    <!-- Sekcja galerii -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <h2>Moje Prace</h2>
+
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="wszystkie">Wszystkie</button>
+                <button class="filter-btn" data-filter="portrety">Portrety</button>
+                <button class="filter-btn" data-filter="krajobraz">Krajobraz</button>
+                <button class="filter-btn" data-filter="architektura">Architektura</button>
+                <button class="filter-btn" data-filter="natura">Natura</button>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item" data-category="portrety">
+                    <a href="img/1.jpg" target="_blank">
+                        <img src="img/1.thumbnail" alt="Portret kobiety">
+                    </a>
+                    <div class="item-overlay">
+                        <h3>Portret w świetle</h3>
+                        <p>Sesja portretowa w naturalnym świetle</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="krajobraz">
+                    <a href="img/2.jpg" target="_blank">
+                        <img src="img/2.thumbnail" alt="Krajobraz górski">
+                    </a>
+                    <div class="item-overlay">
+                        <h3>Górski Krajobraz</h3>
+                        <p>Świt w górach, naturalny krajobraz</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="architektura">
+                    <a href="img/3.jpg" target="_blank">
+                        <img src="img/3.thumbnail" alt="Ulica nocą">
+                    </a>
+                    <div class="item-overlay">
+                        <h3>Miejskie Światła</h3>
+                        <p>Nocne zdjęcie ulicy w centrum miasta</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="architektura">
+                    <a href="img/4.jpg" target="_blank">
+                        <img src="img/4.thumbnail" alt="Budynek architektury nowoczesnej">
+                    </a>
+                    <div class="item-overlay">
+                        <h3>Nowoczesna Architektura</h3>
+                        <p>Geometryczne formy współczesnej architektury</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="natura">
+                    <a href="img/5.jpg" target="_blank">
+                        <img src="img/5.thumbnail" alt="Kwiat w zbliżeniu">
+                    </a>
+                    <div class="item-overlay">
+                        <h3>Flora Detale</h3>
+                        <p>Makrofotografia roślin i kwiatów</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="natura">
+                    <a href="img/6.jpg" target="_blank">
+                        <img src="img/6.thumbnail" alt="Portret artystyczny">
+                    </a>
+                    <div class="item-overlay">
+                        <h3>Kolor i Emocje</h3>
+                        <p>Kreatywny portret w intensywnych kolorach</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sekcja O Mnie -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>O Mnie</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="img/profile.jpg" alt="Zdjęcie o mnie">
+                </div>
+                <div class="about-text">
+                    <h3>Kim Jestem?</h3>
+                    <p>Pasjonatem fotografii z wieloletnim doświadczeniem w różnych dziedzinach. Moja praca to nie tylko robienie zdjęć, ale opowiadanie historii poprzez obrazy. Każda fotografia jest dla mnie unikalnym sposobem na uchwycenie emocji, momentu i piękna otaczającego nas świata.</p>
+                    <p>Specjalizuję się w portretach, fotografii krajobrazowej i architektonicznej, ale jestem otwarty na nowe wyzwania i projekty. Moim celem jest dostarczanie klientom zdjęć najwyższej jakości, które będą cenną pamiątką na lata.</p>
+                    <a href="#" class="btn">Dowiedz się więcej</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sekcja Kontakt -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Kontakt</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Informacje Kontaktowe</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">🏠</div>
+                        <div class="contact-details">
+                            <p>ul. Przykładowa 123, 00-000 Miasto</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p>twoj@email.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div class="contact-details">
+                            <h4>Telefon</h4>
+                            <p>+48 123 456 789</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Wyślij Wiadomość</h3>
+                    <form action="#" method="POST" id="contact-form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Twoje Imię" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Twój Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Wiadomość" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Wyślij</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stopka -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>O Mnie</h3>
+                    <p>Profesjonalny fotograf z pasją do tworzenia niezapomnianych obrazów.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon" aria-label="Facebook">FB</a>
+                        <a href="#" class="social-icon" aria-label="Instagram">IN</a>
+                        <a href="#" class="social-icon" aria-label="Twitter">TW</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Linki</h3>
+                    <a href="#">Strona Główna</a>
+                    <a href="#gallery">Portfolio</a>
+                    <a href="#about">O Mnie</a>
+                    <a href="#contact">Kontakt</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Kontakt</h3>
+                    <p>Email: twoj@email.com</p>
+                    <p>Telefon: +48 123 456 789</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Moje Portfolio Fotograficzne. Wszelkie prawa zastrzeżone.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Skrypty -->
+    <script src="js/main.js"></script>
+</body>
+</html>
