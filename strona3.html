@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swiatlocien</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Liberation Mono', 'Courier New', Courier, monospace;
+        }
+
+        html {
+            scroll-behavior: smooth; /* Płynne przewijanie do sekcji */
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: #0066cc;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            color: #555;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #0066cc;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: #333;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .hero {
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-color: #0066cc;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1200x800') center/cover no-repeat;
+            opacity: 0.8;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: white;
+            color: #0066cc;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 2px solid white;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: white;
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: none;
+            border: 2px solid #ddd;
+            padding: 0.5rem 1.5rem;
+            margin: 0.5rem;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background-color: #0066cc;
+            color: white;
+            border-color: #0066cc;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            aspect-ratio: 3/4;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .item-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            padding: 1.5rem;
+            color: white;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+        
+        .gallery-item:hover .item-overlay {
+            transform: translateY(0);
+        }
+        
+        .item-overlay h3 {
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        /* Sekcja O Mnie */
+        .about {
+            background-color: #fff;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .about-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #0066cc;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .about-text h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: #0066cc;
+        }
+        
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Sekcja Kontakt */
+        .contact {
+            background-color: #f0f5ff;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+        
+        .contact-info {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #0066cc;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            color: #0066cc;
+            font-weight: bold;
+        }
+        
+        .contact-details h4 {
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-form {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .contact-form h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #0066cc;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        textarea.form-control {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background-color: #0066cc;
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background-color: #0055aa;
+        }
+        
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 3rem 0;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: #0066cc;
+        }
+        
+        .footer-column p, .footer-column a {
+            color: #ddd;
+            margin-bottom: 1rem;
+            display: block;
+            text-decoration: none;
+        }
+        
+        .footer-column a:hover {
+            color: #0066cc;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #444;
+            border-radius: 50%;
+            color: white;
+            transition: background-color 0.3s;
+        }
+        
+        .social-icon:hover {
+            background-color: #0066cc;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid #444;
+        }
+        
+        /* Mobilne Menu */
+        #mobile-nav {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 80%;
+            max-width: 300px;
+            height: 100vh;
+            background-color: white;
+            z-index: 1000;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            transition: left 0.3s ease;
+            padding: 2rem;
+        }
+        
+        #mobile-nav.active {
+            left: 0;
+        }
+        
+        .close-menu {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .mobile-nav-links {
+            list-style: none;
+            margin-top: 3rem;
+        }
+        
+        .mobile-nav-links li {
+            margin-bottom: 1.5rem;
+        }
+        
+        .mobile-nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.2rem;
+            display: block;
+            transition: color 0.3s;
+        }
+        
+        .mobile-nav-links a:hover {
+            color: #0066cc;
+        }
+        
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            display: none;
+        }
+        
+        .overlay.active {
+            display: block;
+        }
+        
+        /* Responsywność */
+        @media (max-width: 768px) {
+            /* Nagłówek i nawigacja */
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            /* Ustawienie dla sekcji z informacjami w jednej kolumnie */
+            .about-content, .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            /* Mniejsze odstępy dla sekcji */
+            section {
+                padding: 3rem 0;
+            }
+            
+            /* Mniejszy nagłówek */
+            section h2 {
+                font-size: 2rem;
+                margin-bottom: 2rem;
+                text-align: center;
+            }
+            
+            /* Nagłówki podsekcji wyśrodkowane na mobilnej wersji */
+            .about-text h3, .contact-info h3, .contact-form h3 {
+                text-align: center;
+            }
+            
+            /* Centrowanie linii podkreślającej w nagłówkach */
+            .about-text h3::after, .contact-info h3::after, .contact-form h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            /* Przyciski filtrowania w mniejszym rozmiarze */
+            .filter-btn {
+                padding: 0.4rem 1.2rem;
+                font-size: 0.9rem;
+            }
+            
+            /* Zmiana siatki galerii na mniejszą */
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 1rem;
+            }
+            
+            /* Dopasowanie elementów formularza */
+            .form-control {
+                padding: 0.6rem 0.8rem;
+            }
+            
+            .submit-btn {
+                width: 100%;
+            }
+            
+            /* Stopka */
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .footer-column h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+        }
+        
+        /* Jeszcze mniejsze ekrany */
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .btn {
+                padding: 0.6rem 1.5rem;
+                font-size: 0.9rem;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .filter-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .filter-btn {
+                width: 80%;
+                margin: 0.3rem 0;
+            }
+            
+            section h2 {
+                font-size: 1.8rem;
+            }
+            
+            .about-text h3 {
+                font-size: 1.5rem;
+            }
+            
+            /* Zwiększenie rozmiaru przycisków i interaktywnych elementów 
+               dla łatwiejszego dotykania na małych ekranach */
+            .contact-icon, .social-icon {
+                width: 50px;
+                height: 50px;
+            }
+            
+            input, button, textarea {
+                font-size: 16px; /* Zapobiega powiększaniu pola formularza na iOS */
+            }
+        }
+        
+        /* Dotykowe zachowanie elementów */
+        @media (hover: none) {
+            /* Zawsze pokaż opisy w galerii na urządzeniach dotykowych */
+            .item-overlay {
+                transform: translateY(0);
+                opacity: 0.9;
+            }
+            
+            /* Zwykły stan aktywny dla przycisków */
+            .btn:active, .filter-btn:active, .submit-btn:active, .social-icon:active {
+                transform: scale(0.95);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">Swiatlo<span>cien</span></a>
+                <ul class="nav-links">
+                    <li><a href="#">Strona Główna</a></li>
+                    <li><a href="#gallery">Portfolio</a></li>
+                    <li><a href="#about">O Mnie</a></li>
+                    <li><a href="#contact">Kontakt</a></li>
+                </ul>
+                <button class="mobile-menu-btn">☰</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="overlay"></div>
+    <div id="mobile-nav">
+        <button class="close-menu">✕</button>
+        <ul class="mobile-nav-links">
+            <li><a href="#">Strona Główna</a></li>
+            <li><a href="#gallery">Portfolio</a></li>
+            <li><a href="#about">O Mnie</a></li>
+            <li><a href="#contact">Kontakt</a></li>
+        </ul>
+    </div>
+
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1>Moje Fotograficzne Portfolio</h1>
+            <p>Uchwyć moment, zachowaj wspomnienie. Odkryj moje najlepsze prace fotograficzne.</p>
+            <a href="#gallery" class="btn">Zobacz Portfolio</a>
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <h2>Moje Prace</h2>
+
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="wszystkie">Wszystkie</button>
+                <button class="filter-btn" data-filter="portrety">Portrety</button>
+                <button class="filter-btn" data-filter="krajobraz">Krajobraz</button>
+                <button class="filter-btn" data-filter="architektura">Architektura</button>
+                <button class="filter-btn" data-filter="natura">Natura</button>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item" data-category="portrety">
+                    <a href="img/1.jpg" target="_blank">
+                        <img src="img/1.thumbnail" alt="Portret kobiety">
+                    </a>
+                    <div class="item-overlay">
+                        <h3>Portret w świetle</h3>
+                        <p>Sesja portretowa w naturalnym świetle</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="krajobraz">
+                    <a href="img/2.jpg" target="_blank">
+                        <img src="img/2.thumbnail" alt="Krajobraz górski">
+                    </a>
+                    <div class="item-overlay">
+                        <h3>Górski Krajobraz</h3>
+                        <p>Świt w górach, naturalny krajobraz</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="architektura">
+                    <a href="img/3.jpg" target="_blank">
+                        <img src="img/3.thumbnail" alt="Ulica nocą">
+                    </a>
+                    <div class="item-overlay">
+                        <h3>Miejskie Światła</h3>
+                        <p>Nocne zdjęcie ulicy w centrum miasta</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="architektura">
+                    <a href="img/4.jpg" target="_blank">
+                        <img src="img/4.thumbnail" alt="Budynek architektury nowoczesnej">
+                    </a>
+                    <div class="item-overlay">
+                        <h3>Nowoczesna Architektura</h3>
+                        <p>Geometryczne formy współczesnej architektury</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="natura">
+                    <a href="img/5.jpg" target="_blank">
+                        <img src="img/5.thumbnail" alt="Kwiat w zbliżeniu">
+                    </a>
+                    <div class="item-overlay">
+                        <h3>Flora Detale</h3>
+                        <p>Makrofotografia roślin i kwiatów</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="natura">
+                    <a href="img/6.jpg" target="_blank">
+                        <img src="img/6.thumbnail" alt="Portret artystyczny">
+                    </a>
+                    <div class="item-overlay">
+                        <h3>Kolor i Emocje</h3>
+                        <p>Kreatywny portret w intensywnych kolorach</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2>O Mnie</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://via.placeholder.com/600x400" alt="Zdjęcie o mnie">
+                </div>
+                <div class="about-text">
+                    <h3>Kim Jestem?</h3>
+                    <p>Pasjonatem fotografii z wieloletnim doświadczeniem w różnych dziedzinach. Moja praca to nie tylko robienie zdjęć, ale opowiadanie historii poprzez obrazy. Każda fotografia jest dla mnie unikalnym sposobem na uchwycenie emocji, momentu i piękna otaczającego nas świata.</p>
+                    <p>Specjalizuję się w portretach, fotografii krajobrazowej i architektonicznej, ale jestem otwarty na nowe wyzwania i projekty. Moim celem jest dostarczanie klientom zdjęć najwyższej jakości, które będą cenną pamiątką na lata.</p>
+                    <a href="#" class="btn">Dowiedz się więcej</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Kontakt</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Informacje Kontaktowe</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">🏠</div>
+                        <div class="contact-details">
+                            <p>ul. Przykładowa 123, 00-000 Miasto</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p>twoj@email.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div class="contact-details">
+                            <h4>Telefon</h4>
+                            <p>+48 123 456 789</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Wyślij Wiadomość</h3>
+                    <form action="#" method="POST">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Twoje Imię" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Twój Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Wiadomość" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Wyślij</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>O Mnie</h3>
+                    <p>Profesjonalny fotograf z pasją do tworzenia niezapomnianych obrazów.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon">FB</a>
+                        <a href="#" class="social-icon">IN</a>
+                        <a href="#" class="social-icon">TW</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Linki</h3>
+                    <a href="#">Strona Główna</a>
+                    <a href="#gallery">Portfolio</a>
+                    <a href="#about">O Mnie</a>
+                    <a href="#contact">Kontakt</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Kontakt</h3>
+                    <p>Email: twoj@email.com</p>
+                    <p>Telefon: +48 123 456 789</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Moje Portfolio Fotograficzne. Wszelkie prawa zastrzeżone.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Obsługa filtrowania galerii
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const filter = this.getAttribute('data-filter');
+
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+
+                galleryItems.forEach(item => {
+                    if (filter === 'wszystkie' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Obsługa mobilnego menu
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const closeMenuBtn = document.querySelector('.close-menu');
+        const mobileNav = document.getElementById('mobile-nav');
+        const overlay = document.querySelector('.overlay');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-links a');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileNav.classList.add('active');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        function closeMenu() {
+            mobileNav.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        closeMenuBtn.addEventListener('click', closeMenu);
+        overlay.addEventListener('click', closeMenu);
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+    </script>
+</body>
+</html>
