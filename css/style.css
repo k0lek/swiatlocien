@@ -236,6 +236,9 @@ section h2 {
     object-fit: cover;
     display: block;
     transition: transform 0.5s;
+    position: relative;
+    pointer-events: none;
+    user-select: none;
 }
 
 .gallery-item:hover img {
@@ -734,6 +737,8 @@ footer {
     max-width: 100%;
     max-height: 80vh;
     object-fit: contain;
+    pointer-events: none;
+    user-select: none;
 }
 
 #lightbox-caption {
@@ -1353,4 +1358,45 @@ nav {
     .lightbox-content {
         padding-bottom: 4rem; /* Dodajemy miejsce na przyciski */
     }
+}
+
+/* Zabezpieczenia zdjęć */
+.gallery-item img {
+    position: relative;
+    pointer-events: none; /* Zapobiega przeciąganiu */
+    user-select: none; /* Zapobiega zaznaczaniu */
+}
+
+.gallery-item::after {
+    content: "© swiatlocien.org.pl";
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Dodatkowy watermark w tle */
+.gallery-item::before {
+    content: "swiatlocien.org.pl";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    color: rgba(255, 255, 255, 0.1);
+    font-size: 40px;
+    font-family: Arial, sans-serif;
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Lightbox - zabezpieczone zdjęcia */
+#lightbox-img {
+    pointer-events: none;
+    user-select: none;
 }

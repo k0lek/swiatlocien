@@ -172,3 +172,49 @@ function initLightbox() {
     // Inicjalizacja galerii
     initGallery();
 }
+
+// Zabezpieczenia zdjęć
+document.addEventListener('contextmenu', function(e) {
+    // Blokada prawego przycisku myszy na całej stronie
+    e.preventDefault();
+});
+
+// Blokada przeciągania
+document.addEventListener('dragstart', function(e) {
+    if (e.target.tagName === 'IMG' || e.target.classList.contains('gallery-item')) {
+        e.preventDefault();
+    }
+});
+
+// Blokada zaznaczania
+document.addEventListener('selectstart', function(e) {
+    if (e.target.tagName === 'IMG' || e.target.classList.contains('gallery-item')) {
+        e.preventDefault();
+    }
+});
+
+// Blokada skrótów klawiszowych
+document.addEventListener('keydown', function(e) {
+    // Blokada Ctrl+S, Ctrl+P, PrintScreen
+    if ((e.ctrlKey && e.key === 's') || 
+        (e.ctrlKey && e.key === 'p') || 
+        e.key === 'PrintScreen') {
+        e.preventDefault();
+    }
+});
+
+// Dodatkowe zabezpieczenie dla lightboxa
+document.getElementById('lightbox').addEventListener('click', function(e) {
+    if (e.target.id === 'lightbox-img' || e.target.classList.contains('gallery-item')) {
+        e.preventDefault();
+    }
+});
+
+// Dodatkowe zabezpieczenie dla galerii
+document.querySelectorAll('.gallery-item').forEach(item => {
+    item.addEventListener('click', function(e) {
+        if (e.target.tagName === 'IMG') {
+            e.preventDefault();
+        }
+    });
+});
