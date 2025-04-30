@@ -13,58 +13,60 @@
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <header>
+    <a href="#main-content" class="skip-link">Przejdź do głównej treści</a>
+    
+    <header role="banner">
         <div class="container">
-            <nav>
-                <a href="#" class="logo">Swiatlo<span>cien</span></a>
+            <nav role="navigation" aria-label="Główne menu">
+                <a href="#" class="logo" aria-label="Strona główna - Światłocień">Swiatlo<span>cien</span></a>
                 <ul class="nav-links">
-                    <li><a href="#">Strona Główna</a></li>
+                    <li><a href="#" aria-current="page">Strona Główna</a></li>
                     <li><a href="#gallery">Portfolio</a></li>
                     <li><a href="#about">O Mnie</a></li>
                 </ul>
-                <button class="mobile-menu-btn" aria-label="Menu mobilne">☰</button>
+                <button class="mobile-menu-btn" aria-label="Otwórz menu mobilne" aria-expanded="false" aria-controls="mobile-nav">☰</button>
             </nav>
         </div>
     </header>
 
     <!-- Menu mobilne -->
-    <div class="overlay"></div>
-    <div id="mobile-nav">
+    <div class="overlay" aria-hidden="true"></div>
+    <div id="mobile-nav" role="navigation" aria-label="Menu mobilne">
         <button class="close-menu" aria-label="Zamknij menu">✕</button>
         <ul class="mobile-nav-links">
-            <li><a href="#">Strona Główna</a></li>
+            <li><a href="#" aria-current="page">Strona Główna</a></li>
             <li><a href="#gallery">Portfolio</a></li>
             <li><a href="#about">O Mnie</a></li>
         </ul>
     </div>
 
     <!-- Sekcja hero -->
-    <section class="hero">
-        <div class="hero-bg"></div>
+    <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-bg" aria-hidden="true"></div>
         <div class="hero-content">
-            <h1>Moje Fotograficzne Portfolio</h1>
+            <h1 id="hero-title">Moje Fotograficzne Portfolio</h1>
             <p>Uchwyć moment, zachowaj wspomnienie. Odkryj moje najlepsze prace fotograficzne.</p>
             <a href="#gallery" class="btn">Zobacz Portfolio</a>
         </div>
     </section>
 
     <!-- Sekcja galerii -->
-    <section id="gallery" class="gallery">
+    <section id="gallery" class="gallery" aria-labelledby="gallery-title">
         <div class="container">
-            <h2>Moje Prace</h2>
+            <h2 id="gallery-title">Moje Prace</h2>
 
-            <div class="filter-buttons">
-                <button class="filter-btn active" data-filter="wszystkie">Wszystkie</button>
-                <button class="filter-btn" data-filter="portrety">Portrety</button>
-                <button class="filter-btn" data-filter="krajobraz">Krajobraz</button>
-                <button class="filter-btn" data-filter="architektura">Architektura</button>
-                <button class="filter-btn" data-filter="natura">Natura</button>
+            <div class="filter-buttons" role="group" aria-label="Filtry galerii">
+                <button class="filter-btn active" data-filter="wszystkie" aria-pressed="true">Wszystkie</button>
+                <button class="filter-btn" data-filter="portrety" aria-pressed="false">Portrety</button>
+                <button class="filter-btn" data-filter="krajobraz" aria-pressed="false">Krajobraz</button>
+                <button class="filter-btn" data-filter="architektura" aria-pressed="false">Architektura</button>
+                <button class="filter-btn" data-filter="natura" aria-pressed="false">Natura</button>
             </div>
 
-            <div class="gallery-grid">
-                <div class="gallery-item" data-category="portrety">
-                    <a href="img/1.jpg" data-lightbox="gallery" data-title="Portret w świetle - Sesja portretowa w naturalnym świetle">
-                        <img src="img/1.thumbnail" alt="Portret kobiety">
+            <div class="gallery-grid" role="list">
+                <div class="gallery-item" data-category="portrety" role="listitem">
+                    <a href="img/1.jpg" data-lightbox="gallery" data-title="Portret w świetle - Sesja portretowa w naturalnym świetle" aria-label="Portret kobiety - otwórz w lightboxie">
+                        <img src="img/1.thumbnail" alt="Portret kobiety w naturalnym świetle, sesja portretowa">
                     </a>
                     <div class="item-overlay">
                         <h3>Portret w świetle</h3>
@@ -72,9 +74,9 @@
                     </div>
                 </div>
 
-                <div class="gallery-item" data-category="krajobraz">
-                    <a href="img/2.png" data-lightbox="gallery" data-title="Górski Krajobraz - Świt w górach, naturalny krajobraz">
-                        <img src="img/2.thumbnail" alt="Krajobraz górski">
+                <div class="gallery-item" data-category="krajobraz" role="listitem">
+                    <a href="img/2.png" data-lightbox="gallery" data-title="Górski Krajobraz - Świt w górach, naturalny krajobraz" aria-label="Górski krajobraz - otwórz w lightboxie">
+                        <img src="img/2.thumbnail" alt="Górski krajobraz o świcie, naturalne światło">
                     </a>
                     <div class="item-overlay">
                         <h3>Górski Krajobraz</h3>
@@ -82,9 +84,9 @@
                     </div>
                 </div>
 
-                <div class="gallery-item" data-category="architektura">
-                    <a href="img/3.png" data-lightbox="gallery" data-title="Miejskie Światła - Nocne zdjęcie ulicy w centrum miasta">
-                        <img src="img/3.thumbnail" alt="Ulica nocą">
+                <div class="gallery-item" data-category="architektura" role="listitem">
+                    <a href="img/3.png" data-lightbox="gallery" data-title="Miejskie Światła - Nocne zdjęcie ulicy w centrum miasta" aria-label="Miejskie światła - otwórz w lightboxie">
+                        <img src="img/3.thumbnail" alt="Nocne zdjęcie ulicy w centrum miasta, oświetlenie miejskie">
                     </a>
                     <div class="item-overlay">
                         <h3>Miejskie Światła</h3>
@@ -92,9 +94,9 @@
                     </div>
                 </div>
 
-                <div class="gallery-item" data-category="architektura">
-                    <a href="img/4.png" data-lightbox="gallery" data-title="Nowoczesna Architektura - Geometryczne formy współczesnej architektury">
-                        <img src="img/4.thumbnail" alt="Budynek architektury nowoczesnej">
+                <div class="gallery-item" data-category="architektura" role="listitem">
+                    <a href="img/4.png" data-lightbox="gallery" data-title="Nowoczesna Architektura - Geometryczne formy współczesnej architektury" aria-label="Nowoczesna architektura - otwórz w lightboxie">
+                        <img src="img/4.thumbnail" alt="Nowoczesny budynek z geometrycznymi formami architektonicznymi">
                     </a>
                     <div class="item-overlay">
                         <h3>Nowoczesna Architektura</h3>
@@ -102,18 +104,19 @@
                     </div>
                 </div>
 
-                <div class="gallery-item" data-category="natura">
-                    <a href="img/5.png" data-lightbox="gallery" data-title="Flora Detale - Makrofotografia roślin i kwiatów">
-                        <img src="img/5.thumbnail" alt="Kwiat w zbliżeniu">
+                <div class="gallery-item" data-category="natura" role="listitem">
+                    <a href="img/5.png" data-lightbox="gallery" data-title="Flora Detale - Makrofotografia roślin i kwiatów" aria-label="Flora detale - otwórz w lightboxie">
+                        <img src="img/5.thumbnail" alt="Makrofotografia kwiatu, detale rośliny">
                     </a>
                     <div class="item-overlay">
                         <h3>Flora Detale</h3>
                         <p>Makrofotografia roślin i kwiatów</p>
                     </div>
                 </div>
-                <div class="gallery-item" data-category="natura">
-                    <a href="img/6.png" data-lightbox="gallery" data-title="Kolor i Emocje - Kreatywny portret w intensywnych kolorach">
-                        <img src="img/6.thumbnail" alt="Portret artystyczny">
+
+                <div class="gallery-item" data-category="natura" role="listitem">
+                    <a href="img/6.png" data-lightbox="gallery" data-title="Kolor i Emocje - Kreatywny portret w intensywnych kolorach" aria-label="Kolor i emocje - otwórz w lightboxie">
+                        <img src="img/6.thumbnail" alt="Kreatywny portret z intensywnymi kolorami">
                     </a>
                     <div class="item-overlay">
                         <h3>Kolor i Emocje</h3>
@@ -125,10 +128,10 @@
     </section>
 
     <!-- Lightbox -->
-    <div id="lightbox" class="lightbox">
-        <span class="close-lightbox">&times;</span>
-        <span class="prev-lightbox">&#10094;</span>
-        <span class="next-lightbox">&#10095;</span>
+    <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightbox-caption" style="display: none;">
+        <span class="close-lightbox" aria-label="Zamknij lightbox">&times;</span>
+        <span class="prev-lightbox" aria-label="Poprzednie zdjęcie">&#10094;</span>
+        <span class="next-lightbox" aria-label="Następne zdjęcie">&#10095;</span>
         <div class="lightbox-content">
             <img id="lightbox-img" src="" alt="">
             <div id="lightbox-caption"></div>
@@ -136,45 +139,45 @@
     </div>
 
     <!-- Sekcja O Mnie -->
-    <section id="about" class="about">
+    <section id="about" class="about" aria-labelledby="about-title">
         <div class="container">
-            <h2>O Mnie</h2>
+            <h2 id="about-title">O Mnie</h2>
             <div class="about-content">
                 <div class="about-image">
-                    <img src="img/p1.jpeg" alt="Zdjęcie o mnie">
+                    <img src="img/p1.jpeg" alt="Fotograf podczas pracy">
                 </div>
                 <div class="about-text">
                     <h3>Kim Jestem?</h3>
                     <p>Pasjonatem fotografii z wieloletnim doświadczeniem w różnych dziedzinach. Moja praca to nie tylko robienie zdjęć, ale opowiadanie historii poprzez obrazy. Każda fotografia jest dla mnie unikalnym sposobem na uchwycenie emocji, momentu i piękna otaczającego nas świata.</p>
                     <p>Specjalizuję się w portretach, fotografii krajobrazowej i architektonicznej, ale jestem otwarty na nowe wyzwania i projekty. Moim celem jest dostarczanie klientom zdjęć najwyższej jakości, które będą cenną pamiątką na lata.</p>
-                    <a href="https://pikpodlaskie.pl/dzialalnosc/zespoly/foto-spoldzielnia/" class="btn" target="_blank">Dowiedz się więcej</a>
+                    <a href="https://pikpodlaskie.pl/dzialalnosc/zespoly/foto-spoldzielnia/" class="btn" target="_blank" rel="noopener noreferrer">Dowiedz się więcej</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Stopka -->
-    <footer>
+    <footer role="contentinfo">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
                     <h3>O Mnie</h3>
                     <p>Profesjonalny fotograf z pasją do tworzenia niezapomnianych obrazów.</p>
                     <div class="social-links">
-                        <a href="#" class="social-icon" aria-label="Facebook">FB</a>
-                        <a href="#" class="social-icon" aria-label="Instagram">IN</a>
+                        <a href="#" class="social-icon" aria-label="Facebook - otwórz w nowej karcie" target="_blank" rel="noopener noreferrer">FB</a>
+                        <a href="#" class="social-icon" aria-label="Instagram - otwórz w nowej karcie" target="_blank" rel="noopener noreferrer">IN</a>
                     </div>
                 </div>
                 <div class="footer-column">
                     <h3>Linki</h3>
-                    <a href="#">Strona Główna</a>
+                    <a href="#" aria-current="page">Strona Główna</a>
                     <a href="#gallery">Portfolio</a>
                     <a href="#about">O Mnie</a>
                 </div>
                 <div class="footer-column">
                     <h3>Kontakt</h3>
-                    <p>Email: twoj@email.com</p>
-                    <p>Telefon: +48 123 456 789</p>
+                    <p>Email: <a href="mailto:twoj@email.com">twoj@email.com</a></p>
+                    <p>Telefon: <a href="tel:+48123456789">+48 123 456 789</a></p>
                 </div>
             </div>
             <div class="copyright">
