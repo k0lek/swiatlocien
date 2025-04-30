@@ -21,7 +21,6 @@
                     <li><a href="#">Strona Główna</a></li>
                     <li><a href="#gallery">Portfolio</a></li>
                     <li><a href="#about">O Mnie</a></li>
-                    <li><a href="#contact">Kontakt</a></li>
                 </ul>
                 <button class="mobile-menu-btn" aria-label="Menu mobilne">☰</button>
             </nav>
@@ -36,7 +35,6 @@
             <li><a href="#">Strona Główna</a></li>
             <li><a href="#gallery">Portfolio</a></li>
             <li><a href="#about">O Mnie</a></li>
-            <li><a href="#contact">Kontakt</a></li>
         </ul>
     </div>
 
@@ -65,7 +63,7 @@
 
             <div class="gallery-grid">
                 <div class="gallery-item" data-category="portrety">
-                    <a href="img/1.jpg" target="_blank">
+                    <a href="img/1.jpg" data-lightbox="gallery" data-title="Portret w świetle - Sesja portretowa w naturalnym świetle">
                         <img src="img/1.thumbnail" alt="Portret kobiety">
                     </a>
                     <div class="item-overlay">
@@ -75,7 +73,7 @@
                 </div>
 
                 <div class="gallery-item" data-category="krajobraz">
-                    <a href="img/2.jpg" target="_blank">
+                    <a href="img/2.png" data-lightbox="gallery" data-title="Górski Krajobraz - Świt w górach, naturalny krajobraz">
                         <img src="img/2.thumbnail" alt="Krajobraz górski">
                     </a>
                     <div class="item-overlay">
@@ -85,7 +83,7 @@
                 </div>
 
                 <div class="gallery-item" data-category="architektura">
-                    <a href="img/3.jpg" target="_blank">
+                    <a href="img/3.png" data-lightbox="gallery" data-title="Miejskie Światła - Nocne zdjęcie ulicy w centrum miasta">
                         <img src="img/3.thumbnail" alt="Ulica nocą">
                     </a>
                     <div class="item-overlay">
@@ -95,7 +93,7 @@
                 </div>
 
                 <div class="gallery-item" data-category="architektura">
-                    <a href="img/4.jpg" target="_blank">
+                    <a href="img/4.png" data-lightbox="gallery" data-title="Nowoczesna Architektura - Geometryczne formy współczesnej architektury">
                         <img src="img/4.thumbnail" alt="Budynek architektury nowoczesnej">
                     </a>
                     <div class="item-overlay">
@@ -105,7 +103,7 @@
                 </div>
 
                 <div class="gallery-item" data-category="natura">
-                    <a href="img/5.jpg" target="_blank">
+                    <a href="img/5.png" data-lightbox="gallery" data-title="Flora Detale - Makrofotografia roślin i kwiatów">
                         <img src="img/5.thumbnail" alt="Kwiat w zbliżeniu">
                     </a>
                     <div class="item-overlay">
@@ -114,7 +112,7 @@
                     </div>
                 </div>
                 <div class="gallery-item" data-category="natura">
-                    <a href="img/6.jpg" target="_blank">
+                    <a href="img/6.png" data-lightbox="gallery" data-title="Kolor i Emocje - Kreatywny portret w intensywnych kolorach">
                         <img src="img/6.thumbnail" alt="Portret artystyczny">
                     </a>
                     <div class="item-overlay">
@@ -126,66 +124,30 @@
         </div>
     </section>
 
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <span class="close-lightbox">&times;</span>
+        <span class="prev-lightbox">&#10094;</span>
+        <span class="next-lightbox">&#10095;</span>
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="" alt="">
+            <div id="lightbox-caption"></div>
+        </div>
+    </div>
+
     <!-- Sekcja O Mnie -->
     <section id="about" class="about">
         <div class="container">
             <h2>O Mnie</h2>
             <div class="about-content">
                 <div class="about-image">
-                    <img src="img/profile.jpg" alt="Zdjęcie o mnie">
+                    <img src="img/p1.jpeg" alt="Zdjęcie o mnie">
                 </div>
                 <div class="about-text">
                     <h3>Kim Jestem?</h3>
                     <p>Pasjonatem fotografii z wieloletnim doświadczeniem w różnych dziedzinach. Moja praca to nie tylko robienie zdjęć, ale opowiadanie historii poprzez obrazy. Każda fotografia jest dla mnie unikalnym sposobem na uchwycenie emocji, momentu i piękna otaczającego nas świata.</p>
                     <p>Specjalizuję się w portretach, fotografii krajobrazowej i architektonicznej, ale jestem otwarty na nowe wyzwania i projekty. Moim celem jest dostarczanie klientom zdjęć najwyższej jakości, które będą cenną pamiątką na lata.</p>
-                    <a href="#" class="btn">Dowiedz się więcej</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sekcja Kontakt -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Kontakt</h2>
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3>Informacje Kontaktowe</h3>
-                    <div class="contact-item">
-                        <div class="contact-icon">🏠</div>
-                        <div class="contact-details">
-                            <p>ul. Przykładowa 123, 00-000 Miasto</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">✉️</div>
-                        <div class="contact-details">
-                            <h4>Email</h4>
-                            <p>twoj@email.com</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">📞</div>
-                        <div class="contact-details">
-                            <h4>Telefon</h4>
-                            <p>+48 123 456 789</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-form">
-                    <h3>Wyślij Wiadomość</h3>
-                    <form action="#" method="POST" id="contact-form">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Twoje Imię" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" class="form-control" placeholder="Twój Email" required>
-                        </div>
-                        <div class="form-group">
-                            <textarea class="form-control" placeholder="Wiadomość" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="submit-btn">Wyślij</button>
-                    </form>
+                    <a href="https://pikpodlaskie.pl/dzialalnosc/zespoly/foto-spoldzielnia/" class="btn" target="_blank">Dowiedz się więcej</a>
                 </div>
             </div>
         </div>
@@ -201,7 +163,6 @@
                     <div class="social-links">
                         <a href="#" class="social-icon" aria-label="Facebook">FB</a>
                         <a href="#" class="social-icon" aria-label="Instagram">IN</a>
-                        <a href="#" class="social-icon" aria-label="Twitter">TW</a>
                     </div>
                 </div>
                 <div class="footer-column">
@@ -209,7 +170,6 @@
                     <a href="#">Strona Główna</a>
                     <a href="#gallery">Portfolio</a>
                     <a href="#about">O Mnie</a>
-                    <a href="#contact">Kontakt</a>
                 </div>
                 <div class="footer-column">
                     <h3>Kontakt</h3>
