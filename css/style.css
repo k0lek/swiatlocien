@@ -1376,7 +1376,7 @@ nav {
 }
 
 .gallery-item::after {
-    content: "© swiatlocien.org.pl";
+    content: "© Światłocień";
     position: absolute;
     bottom: 10px;
     right: 10px;
@@ -1390,7 +1390,7 @@ nav {
 
 /* Dodatkowy watermark w tle */
 .gallery-item::before {
-    content: "swiatlocien.org.pl";
+    content: "Światłocień";
     position: absolute;
     top: 50%;
     left: 50%;
