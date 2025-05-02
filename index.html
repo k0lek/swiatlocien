@@ -25,7 +25,7 @@
                     <li><a href="#inspiracje">Inspiracje</a></li>
                     <li><a href="#artykuly">Artykuły</a></li>
                     <li><a href="#about">O Nas</a></li>
-                    <li><a href="#kontakt">Kontakt</a></li>
+                    <li><a href="#footer-contact">Kontakt</a></li>
                 </ul>
                 <button class="mobile-menu-btn" aria-label="Otwórz menu mobilne" aria-expanded="false" aria-controls="mobile-nav">☰</button>
             </nav>
@@ -42,7 +42,7 @@
             <li><a href="#inspiracje">Inspiracje</a></li>
             <li><a href="#artykuly">Artykuły</a></li>
             <li><a href="#about">O Nas</a></li>
-            <li><a href="#kontakt">Kontakt</a></li>
+            <li><a href="#footer-contact">Kontakt</a></li>
         </ul>
     </div>
 
@@ -144,72 +144,75 @@
         </div>
     </div>
 
-    <!-- Sekcja Portfolio -->
-    <section id="portfolio" class="portfolio">
-        <!-- ... existing code ... -->
-    </section>
-
     <!-- Sekcja Inspiracje -->
-    <section id="inspiracje" class="portfolio">
+    <section id="inspiracje" class="inspiracje">
         <div class="container">
             <h2>Inspiracje</h2>
-            <div class="filter-buttons">
-                <button class="filter-btn active" data-filter="wszystkie">Wszystkie</button>
-                <button class="filter-btn" data-filter="natura">Natura</button>
-                <button class="filter-btn" data-filter="architektura">Architektura</button>
-                <button class="filter-btn" data-filter="portret">Portret</button>
+            <div class="inspiracje-filter-buttons" role="group" aria-label="Filtry inspiracji">
+                <button class="inspiracje-filter-btn active" data-filter="wszystkie-inspiracje" aria-pressed="true">
+                    <span>Wszystkie</span>
+                </button>
+                <button class="inspiracje-filter-btn" data-filter="natura-inspiracje" aria-pressed="false">
+                    <span>Natura</span>
+                </button>
+                <button class="inspiracje-filter-btn" data-filter="architektura-inspiracje" aria-pressed="false">
+                    <span>Architektura</span>
+                </button>
+                <button class="inspiracje-filter-btn" data-filter="portret-inspiracje" aria-pressed="false">
+                    <span>Portret</span>
+                </button>
             </div>
-            <div class="gallery-grid">
-                <div class="gallery-item" data-category="natura">
-                    <a href="img_watermarked/1.jpg" data-lightbox="inspiracje" data-title="Inspiracja 1 - Natura">
+            <div class="inspiracje-grid" role="list">
+                <div class="inspiracje-item" data-category="natura-inspiracje" role="listitem">
+                    <a href="img_watermarked/1.jpg" data-lightbox="inspiracje" data-title="Inspiracja 1 - Natura" aria-label="Zobacz inspirację 1 - Natura">
                         <img src="img/1.thumbnail" alt="Inspiracja 1 - Natura">
                     </a>
-                    <div class="item-overlay">
+                    <div class="inspiracje-item-overlay">
                         <h3>Inspiracja 1</h3>
                         <p>Natura</p>
                     </div>
                 </div>
-                <div class="gallery-item" data-category="architektura">
-                    <a href="img_watermarked/2.png" data-lightbox="inspiracje" data-title="Inspiracja 2 - Architektura">
+                <div class="inspiracje-item" data-category="architektura-inspiracje" role="listitem">
+                    <a href="img_watermarked/2.png" data-lightbox="inspiracje" data-title="Inspiracja 2 - Architektura" aria-label="Zobacz inspirację 2 - Architektura">
                         <img src="img/2.thumbnail" alt="Inspiracja 2 - Architektura">
                     </a>
-                    <div class="item-overlay">
+                    <div class="inspiracje-item-overlay">
                         <h3>Inspiracja 2</h3>
                         <p>Architektura</p>
                     </div>
                 </div>
-                <div class="gallery-item" data-category="portret">
-                    <a href="img_watermarked/3.png" data-lightbox="inspiracje" data-title="Inspiracja 3 - Portret">
+                <div class="inspiracje-item" data-category="portret-inspiracje" role="listitem">
+                    <a href="img_watermarked/3.png" data-lightbox="inspiracje" data-title="Inspiracja 3 - Portret" aria-label="Zobacz inspirację 3 - Portret">
                         <img src="img/3.thumbnail" alt="Inspiracja 3 - Portret">
                     </a>
-                    <div class="item-overlay">
+                    <div class="inspiracje-item-overlay">
                         <h3>Inspiracja 3</h3>
                         <p>Portret</p>
                     </div>
                 </div>
-                <div class="gallery-item" data-category="natura">
-                    <a href="img_watermarked/4.png" data-lightbox="inspiracje" data-title="Inspiracja 4 - Natura">
+                <div class="inspiracje-item" data-category="natura-inspiracje" role="listitem">
+                    <a href="img_watermarked/4.png" data-lightbox="inspiracje" data-title="Inspiracja 4 - Natura" aria-label="Zobacz inspirację 4 - Natura">
                         <img src="img/4.thumbnail" alt="Inspiracja 4 - Natura">
                     </a>
-                    <div class="item-overlay">
+                    <div class="inspiracje-item-overlay">
                         <h3>Inspiracja 4</h3>
                         <p>Natura</p>
                     </div>
                 </div>
-                <div class="gallery-item" data-category="architektura">
-                    <a href="img_watermarked/5.png" data-lightbox="inspiracje" data-title="Inspiracja 5 - Architektura">
+                <div class="inspiracje-item" data-category="architektura-inspiracje" role="listitem">
+                    <a href="img_watermarked/5.png" data-lightbox="inspiracje" data-title="Inspiracja 5 - Architektura" aria-label="Zobacz inspirację 5 - Architektura">
                         <img src="img/5.thumbnail" alt="Inspiracja 5 - Architektura">
                     </a>
-                    <div class="item-overlay">
+                    <div class="inspiracje-item-overlay">
                         <h3>Inspiracja 5</h3>
                         <p>Architektura</p>
                     </div>
                 </div>
-                <div class="gallery-item" data-category="portret">
-                    <a href="img_watermarked/6.png" data-lightbox="inspiracje" data-title="Inspiracja 6 - Portret">
+                <div class="inspiracje-item" data-category="portret-inspiracje" role="listitem">
+                    <a href="img_watermarked/6.png" data-lightbox="inspiracje" data-title="Inspiracja 6 - Portret" aria-label="Zobacz inspirację 6 - Portret">
                         <img src="img/6.thumbnail" alt="Inspiracja 6 - Portret">
                     </a>
-                    <div class="item-overlay">
+                    <div class="inspiracje-item-overlay">
                         <h3>Inspiracja 6</h3>
                         <p>Portret</p>
                     </div>
@@ -281,7 +284,7 @@
     </section>
 
     <!-- Stopka -->
-    <footer role="contentinfo">
+    <footer id="footer" role="contentinfo">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
@@ -301,7 +304,7 @@
                     <a href="#about">O Nas</a>
                 </div>
                 <div class="footer-column">
-                    <h3>Kontakt</h3>
+                    <h3 id="footer-contact">Kontakt</h3>
                     <p>Email:</p>
                     <p><a href="mailto:kamila.butkiewicz@gmail.com">kamila.butkiewicz@gmail.com</a></p>
                     <p><a href="mailto:damian.szymansky@gmail.com">damian.szymansky@gmail.com</a></p>
@@ -315,6 +318,6 @@
     </footer>
 
     <!-- Skrypty -->
-    <script src="js/main.js"></script>
+    <script src="js/main.js" defer></script>
 </body>
 </html>
